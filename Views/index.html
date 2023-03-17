@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <section class="carouselAd">
+      <h1 class="dashboard">Quản Lý Học Viện</h1>
+      <div class="container-fluid py-2">
+        <div class="carouselAd__content">
+          <div class="card">
+            <!-- Body -->
+            <div class="card__body">
+              <div
+                class="d-flex justify-content-between mb-2 py-3 px-2 phoneBanner"
+              >
+                <div class="text-left">
+                  <select
+                    id="selectType"
+                    class="form-control d-inline-block mb-2"
+                  >
+                    <option value="">Loại người dùng</option>
+                    <option value="1">Sinh viên</option>
+                    <option value="2">Giảng viên</option>
+                    <option value="3">Khách hàng</option>
+                  </select>
+                  <button id="btnAdd" class="btn btn-success">
+                    <i class="fa-solid fa-circle-plus"></i> Add
+                  </button>
+                </div>
+
+                <div class="text-right">
+                  <!-- Input Search -->
+                  <div class="input-group mb-3">
+                    <input
+                      id="txtSearch"
+                      type="text"
+                      class="form-control"
+                      placeholder="Nhập từ khóa"
+                      aria-label="Recipient's username"
+                      aria-describedby="basic-addon2"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"
+                        ><i class="fa fa-search"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <!-- End Input Search -->
+                </div>
+              </div>
+
+              <div id="table" class="tableProduct"></div>
+            </div>
+
+            <!-- Footer -->
+            <div class="card__footer"></div>
+          </div>
+        </div>
+
+        <!-- The Modal Student -->
+        <div class="modal fade carouselAd__modal" id="studentModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Student's Infomation</h4>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body py-0">
+                <form class="form">
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="name1"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbName1"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="address1"
+                        class="form-control"
+                        placeholder="Address"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbAddress1"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="numberId1"
+                        class="form-control"
+                        placeholder="Number ID"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbNumberId1"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="email1"
+                        class="form-control"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbEmail1"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="mathScore"
+                        class="form-control"
+                        placeholder="Math Score"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbMathScore"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="physicsScore"
+                        class="form-control"
+                        placeholder="Physics Score"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbPhysicsScore"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="chemistryScore"
+                        class="form-control"
+                        placeholder="Chemistry Score"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbChemistryScore"></span>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  id="closeStudentModal"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button id="btnAddStudent" class="btn btn__add btn-success">
+                  Adding
+                </button>
+                <button
+                  id="btnUpdateStudent"
+                  class="btn btn__update btn-primary"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Modal Employee -->
+        <div class="modal fade carouselAd__modal" id="employeeModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Employee's Infomation</h4>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                <form class="form">
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="name2"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbName2"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="address2"
+                        class="form-control"
+                        placeholder="Address"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbAddress2"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="numberId2"
+                        class="form-control"
+                        placeholder="Number ID"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbNumberId2"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="email2"
+                        class="form-control"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbEmail2"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="workingDate"
+                        class="form-control"
+                        placeholder="Total Working Days"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbWorkingDate"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="salary"
+                        class="form-control"
+                        placeholder="Salary/day"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbSalary"></span>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  id="closeEmployeeModal"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button id="addEmployee" class="btn btn__add btn-success">
+                  Adding
+                </button>
+                <button
+                  id="btnUpdateEmployee"
+                  class="btn btn__update btn-primary"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Modal Customer -->
+        <div class="modal fade carouselAd__modal" id="customerModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Customer's Infomation</h4>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                <form class="form">
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="name3"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbName3"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="address3"
+                        class="form-control"
+                        placeholder="Address"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbAddress3"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="numberId3"
+                        class="form-control"
+                        placeholder="Number ID"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbNumberId3"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="email3"
+                        class="form-control"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbEmail3"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="companyName"
+                        class="form-control"
+                        placeholder="Name Of Company"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbCompanyName"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="bill"
+                        class="form-control"
+                        placeholder="Total Bill"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbBill"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group-prepend">
+                      <input
+                        id="feedback"
+                        class="form-control"
+                        placeholder="Feedback"
+                      />
+                    </div>
+                    <span class="sp-thongbao" id="tbFeedback"></span>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer py-0">
+                <button
+                  id="closeCustomerModal"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button id="addCustomer" class="btn btn__add btn-success">
+                  Adding
+                </button>
+                <button
+                  id="btnUpdateCustomer"
+                  class="btn btn__update btn-primary"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../Controllers/common.js"></script>
+    <script type="module" src="../Controllers/index.js"></script>
+  </body>
+</html>
